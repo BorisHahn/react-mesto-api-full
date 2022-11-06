@@ -1,6 +1,8 @@
+const URL = "https://api.gaidukevich.mesto.nomoredomains.icu"
+
 export async function register(email, password) {
   try {
-    const result = await fetch("https://auth.nomoreparties.co/signup", {
+    const result = await fetch(`${URL}/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +20,7 @@ export async function register(email, password) {
 
 export async function authorize(email, password) {
   try {
-    const result = await fetch("https://auth.nomoreparties.co/signin", {
+    const result = await fetch(`${URL}/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +43,7 @@ export async function authorize(email, password) {
 
 export async function getContent(token) {
   try {
-    const result = await fetch(`https://auth.nomoreparties.co/users/me`, {
+    const result = await fetch(`${URL}/users/me`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

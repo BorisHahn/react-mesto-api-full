@@ -72,9 +72,9 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "https://nomoreparties.co/v1/cohort-47",
+  baseUrl: "https://api.gaidukevich.mesto.nomoredomains.icu",
   headers: {
-    authorization: "d0ac06bd-d482-4ba5-981e-c7cee51801d4",
+    // authorization: "d0ac06bd-d482-4ba5-981e-c7cee51801d4",
     "Content-Type": "application/json",
   },
 });
