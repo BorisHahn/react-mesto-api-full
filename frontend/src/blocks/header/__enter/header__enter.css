@@ -1,0 +1,36 @@
+.header__enter {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.header__enter:hover {
+  opacity: 0.6;
+  transition: 0.25s ease-in-out;
+}
+
+@media (max-width: 1023px) {
+  .header__enter {
+    padding-right: 27px;
+  }
+}
+@media (max-width: 625px) {
+  .header__enter {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .header__enter {
+    display: none;
+  }
+}

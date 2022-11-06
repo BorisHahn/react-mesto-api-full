@@ -1,0 +1,11 @@
+.profile__update-avatar {
+    width: 120px;
+    height: 120px;
+    position: relative;
+}
+
+@media (max-width: 625px) {
+  .profile__update-avatar {
+    margin-bottom: 22px;
+  }
+}

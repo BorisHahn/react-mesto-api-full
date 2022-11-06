@@ -1,0 +1,16 @@
+.header__burger {
+  display: none;
+  padding-right: 27px;
+  cursor: pointer;
+}
+
+.header__burger:hover {
+  opacity: 0.6;
+  transition: 0.25s ease-in-out;
+}
+
+@media (max-width: 479.98px) {
+  .header__burger {
+    display: block;
+  }
+}

@@ -1,0 +1,9 @@
+.popup__container_update-avatar {
+  width: 430px;
+  min-height: 272px;
+}
+@media (max-width: 625px) {
+  .popup__container {
+    width: 282px;
+  }
+}

@@ -1,0 +1,22 @@
+.popup__title {
+  margin: 0;
+  padding: 0;
+  padding-top: 34px;
+  padding-left: 36px;
+  padding-bottom: 54px;
+  font-style: normal;
+  font-family: 'Inter';
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 120%;
+  color: black;
+}
+@media (max-width: 625px) {
+  .popup__title {
+    font-size: 18px;
+    padding-top: 25px;
+    padding-left: 0;
+    padding-bottom: 75px;
+    margin: 0 auto;
+  }
+}

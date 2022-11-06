@@ -1,0 +1,17 @@
+.log-form {
+  margin: 60px auto 60px;
+  width: 358px;
+  height: 461px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@media (max-width: 479.98px) {
+  .log-form {
+    margin: 40px auto 40px;
+    width: 100%;
+  }
+}
+

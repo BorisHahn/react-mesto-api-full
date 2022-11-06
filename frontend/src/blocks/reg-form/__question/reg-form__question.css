@@ -1,0 +1,12 @@
+.reg-form__question {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+}

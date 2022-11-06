@@ -1,0 +1,13 @@
+.footer {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  padding-bottom: 60px;
+  color: #545454;
+  flex-shrink: 0;
+}
+@media (max-width: 625px) {
+  .footer {
+    padding: 0 0 36px;
+  }
+}

@@ -1,0 +1,12 @@
+.profile__info-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 18px;
+}
+@media (max-width: 625px) {
+    .profile__info-title {
+      gap: 10px;
+    }
+  }

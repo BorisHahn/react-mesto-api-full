@@ -1,0 +1,24 @@
+@keyframes inAndOut {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 102px;
+  }
+}
+
+.hamburger-menu_opened {
+  margin: 0 auto;
+  height: 102px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: inAndOut 0.5s ease-out;
+}
+
+@media (min-width: 479.98px) {
+  .hamburger-menu_opened {
+    display: none;
+  }
+}

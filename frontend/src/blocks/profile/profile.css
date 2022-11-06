@@ -1,0 +1,28 @@
+.profile {
+  width: 100%;
+  margin: 40px auto 50px;
+  display: grid;
+  grid-template-columns: 120px auto 1fr;
+  grid-template-rows: 120px;
+  column-gap: 30px;
+  align-items: center;
+  grid-template-areas: "avatar name addButton";
+}
+@media (max-width: 1023px) {
+  .profile {
+    grid-template-columns: 120px auto;
+    grid-template-rows: 120px auto;
+    grid-template-areas: "avatar name"
+                         "avatar addButton";
+    justify-content: center;
+    column-gap: 50px;
+  }
+}
+@media (max-width: 625px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
