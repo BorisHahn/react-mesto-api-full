@@ -5,14 +5,12 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 function Card({ card, onCardClick, onCardLike, onCardDelete, onBoxClick}) {
 
   const userInfo = React.useContext(CurrentUserContext);
-  const isOwn = card.owner._id === userInfo._id;
+  const isOwn = card.owner === userInfo._id;
   const cardDeleteButtonClassName = (
     `card__delete ${!isOwn && 'card__delete_hide'}`
   );
-  const isLiked = card.likes.some(i => i._id === userInfo._id);
-  const cardLikeButtonClassName = (
-    `card__like ${isLiked && 'card__like_active'}`
-  );
+  const isLiked = card.likes.some(i => i === userInfo._id);
+  const cardLikeButtonClassName = isLiked ? "card__like card__like_active" : "card__like";
 
 
   function handleClick() {

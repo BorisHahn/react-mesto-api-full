@@ -48,7 +48,7 @@ class Api {
       { method: isLike ? "PUT" : "DELETE" },
       this._config
     );
-    return fetch(this._baseUrl + `/cards/likes/${id}`, config).then((res) =>
+    return fetch(this._baseUrl + `/cards/${id}/likes`, config).then((res) =>
       this._getResponseData(res)
     );
   }

@@ -6,14 +6,17 @@ const { created } = require('../utils/const');
 
 module.exports.getCards = (req, res, next) => {
   Card.find({})
-    .then((cards) => res.send({ data: cards }))
+    .then((cards) => res.send(cards))
     .catch(next);
 };
 
 module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
   Card.create({ name, link, owner: req.user._id })
-    .then((card) => res.status(created).send({ data: card }))
+    .then((card) => {
+      res.status(created).send(card)
+      console.log(card)
+    })
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequest('Переданы некорректные данные для создания карточки'));
@@ -46,16 +49,19 @@ module.exports.deleteCard = (req, res, next) => {
 };
 
 module.exports.likeCard = (req, res, next) => {
+  console.log(req)
   Card.findByIdAndUpdate(
     req.params.cardId,
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )
     .then((card) => {
+      console.log(card)
       if (!card) {
         throw new NotFoundError('Передан несуществующий id карточки');
       } else {
-        res.send({ data: card });
+        res.send(card);
+        console.log(card)
       }
     })
     .catch((err) => {

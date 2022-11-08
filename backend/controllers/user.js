@@ -69,7 +69,7 @@ module.exports.editUser = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Запрашиваемый пользователь не найден');
       } else {
-        res.send({ data: user });
+        res.send(user);
       }
     })
     .catch((err) => {
@@ -89,7 +89,7 @@ module.exports.editAvatar = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Запрашиваемый пользователь не найден');
       } else {
-        res.send({ data: user });
+        res.send(user);
         console.log(`Отправляем на фронт картинку ${user}`);
       }
     })
