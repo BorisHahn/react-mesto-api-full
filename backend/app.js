@@ -23,6 +23,13 @@ mongoose.connect(MONGO_URL);
 app.use(requestLogger);
 app.use(cors);
 
+// краш-тест сервера
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 // роуты, не требующие авторизации
 app.post('/signin', validLoginData, login);
 app.post('/signup', validRegData, createUser);

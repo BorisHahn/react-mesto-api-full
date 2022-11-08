@@ -52,6 +52,10 @@ function App() {
     }
   }, [loggedIn]);
 
+  function handleSetLoggedIn() {
+    setLoggedIn(false);
+  }
+
   function handleAddPlaceSubmit(card) {
     setIsLoading(true);
     api
@@ -260,7 +264,7 @@ function App() {
         .getContent(jwt)
         .then((res) => {
           if (res) {
-            const email = res.data.email;
+            const email = res.email;
             setLoggedIn(!loggedIn);
             setUserEmail({ email });
             history.push("/");
@@ -285,7 +289,7 @@ function App() {
         <Header
           loggedIn={loggedIn}
           userEmail={userEmail}
-          handleLogin={handleLogin}
+          handleSetLoggedIn={handleSetLoggedIn}
           setUserEmail={setUserEmail}
           hamburgerMenu={hamburgerMenu}
           handleHamburgeMenu={handleHamburgeMenu}

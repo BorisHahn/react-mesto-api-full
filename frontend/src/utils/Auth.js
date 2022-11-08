@@ -1,4 +1,6 @@
-const URL = "https://api.gaidukevich.mesto.nomoredomains.icu"
+import api from "../utils/Api";
+// const URL = "https://api.gaidukevich.mesto.nomoredomains.icu"
+const URL = "http://localhost:3000"
 
 export async function register(email, password) {
   try {
@@ -31,6 +33,7 @@ export async function authorize(email, password) {
       return result.json().then((data) => {
         if (data.token) {
           localStorage.setItem("token", data.token);
+          api.setToken(data.token);
           return data;
         }
       });

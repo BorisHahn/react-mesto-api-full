@@ -3,14 +3,14 @@ import { Link, useLocation, useHistory } from "react-router-dom";
 import burger from "../../src/images/burger.svg";
 import closeburger from "../../src/images/closeburger.svg";
 
-function Header({ loggedIn, userEmail, handleLogin, setUserEmail, hamburgerMenu, handleHamburgeMenu}) {
+function Header({ loggedIn, userEmail, handleSetLoggedIn, setUserEmail, hamburgerMenu, handleHamburgeMenu}) {
   const location = useLocation();
   const history = useHistory();
 
   function signOut() {
     localStorage.removeItem("token");
     history.push("/sign-in");
-    handleLogin();
+    handleSetLoggedIn();
     setUserEmail({ email: "" });
   }
 

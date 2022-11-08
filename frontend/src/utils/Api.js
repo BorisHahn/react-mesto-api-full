@@ -69,12 +69,17 @@ class Api {
     }
     return res.json();
   }
+
+  setToken(token) {
+    this._config.headers.authorization = `Bearer ${token}`;
+  }
 }
 
 const api = new Api({
-  baseUrl: "https://api.gaidukevich.mesto.nomoredomains.icu",
+  // baseUrl: "https://api.gaidukevich.mesto.nomoredomains.icu",
+  baseUrl: "http://localhost:3000",
   headers: {
-    // authorization: "d0ac06bd-d482-4ba5-981e-c7cee51801d4",
+    authorization: `Bearer ${localStorage.getItem("token")}`,
     "Content-Type": "application/json",
   },
 });
