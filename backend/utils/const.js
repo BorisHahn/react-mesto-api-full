@@ -6,5 +6,6 @@ module.exports.allowedCors = [
   'http://localhost:3000',
   'http://localhost:3001',
   'https://gaidukevich.mesto.nomoredomains.icu',
+  'https://api.gaidukevich.mesto.nomoredomains.icu',
 ];
 module.exports.DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
