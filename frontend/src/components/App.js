@@ -285,6 +285,8 @@ function App() {
           setUserEmail={setUserEmail}
           hamburgerMenu={hamburgerMenu}
           setHamburgerMenu={setHamburgerMenu}
+          handleSetLoggedIn={handleSetLoggedIn}
+          setCards={setCards}
         />
         <Header
           loggedIn={loggedIn}
@@ -293,6 +295,7 @@ function App() {
           setUserEmail={setUserEmail}
           hamburgerMenu={hamburgerMenu}
           handleHamburgeMenu={handleHamburgeMenu}
+          setCards={setCards}
         />
         <main className="main">
           <Switch>

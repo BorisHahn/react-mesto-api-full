@@ -1,7 +1,6 @@
+const { NODE_ENV, JWT_SECRET } = process.env;
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
-const { JWT_SEC } = require('../utils/const');
 const User = require('../models/user');
 const NotFoundError = require('../errors/notFoundError');
 const BadRequest = require('../errors/badRequestError');
@@ -83,14 +82,12 @@ module.exports.editUser = (req, res, next) => {
 
 module.exports.editAvatar = (req, res, next) => {
   const { avatar } = req.body;
-  console.log(` с фронта пришла картинка ${avatar}`);
   User.findByIdAndUpdate(req.user._id, { avatar }, { new: true, runValidators: true })
     .then((user) => {
       if (!user) {
         throw new NotFoundError('Запрашиваемый пользователь не найден');
       } else {
         res.send(user);
-        console.log(`Отправляем на фронт картинку ${user}`);
       }
     })
     .catch((err) => {
@@ -108,15 +105,10 @@ module.exports.login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        JWT_SEC,
+        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
         { expiresIn: '7d' },
       );
-      res
-        // .cookie('jwt', token, {
-        //   maxAge: 3600000 * 24 * 7,
-        //   httpOnly: true,
-        // })
-        .send({ email, token });
+      res.send({ email, token });
     })
     .catch((err) => {
       next(new UnauthorizedError(err.message));

@@ -12,7 +12,6 @@ function Card({ card, onCardClick, onCardLike, onCardDelete, onBoxClick}) {
   const isLiked = card.likes.some(i => i === userInfo._id);
   const cardLikeButtonClassName = isLiked ? "card__like card__like_active" : "card__like";
 
-
   function handleClick() {
     onCardClick(card);
   }
