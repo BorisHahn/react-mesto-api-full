@@ -44,7 +44,7 @@ function App() {
       api
         .getCards()
         .then((studentsCards) => {
-          setCards([...cards, ...studentsCards.revert()]);
+          setCards([...cards, ...studentsCards]);
         })
         .catch((err) => {
           console.log(err);
