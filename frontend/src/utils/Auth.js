@@ -1,6 +1,5 @@
 import api from "../utils/Api";
-// const URL = "https://api.gaidukevich.mesto.nomoredomains.icu"
-const URL = "http://localhost:3000"
+const URL = "https://api.gaidukevich.mesto.nomoredomains.icu"
 
 export async function register(email, password) {
   try {
