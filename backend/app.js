@@ -1,19 +1,13 @@
 require('dotenv').config();
 const express = require('express');
-require('dotenv').config();
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const bodyParser = require('body-parser');
-const userRouter = require('./routes/user');
-const cardRouter = require('./routes/card');
-const NotFoundError = require('./errors/notFoundError');
-const { login, createUser } = require('./controllers/user');
-const { validRegData, validLoginData } = require('./utils/validation/validUserData');
-const auth = require('./middlewares/auth');
 const errorSetter = require('./middlewares/errorSetter');
 const cors = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const routes = require('./routes');
 
 const { PORT = 3000, MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
 
@@ -23,26 +17,13 @@ app.use(cookieParser());
 mongoose.connect(MONGO_URL);
 app.use(requestLogger);
 app.use(cors);
+app.use(routes);
 
 // краш-тест сервера
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
-});
-
-// роуты, не требующие авторизации
-app.post('/signin', validLoginData, login);
-app.post('/signup', validRegData, createUser);
-
-// роуты, которым авторизация нужна
-app.use('/users', auth, userRouter);
-app.use('/cards', auth, cardRouter);
-app.get('/signout', (req, res) => {
-  res.clearCookie('jwt').send({ message: 'Выход' });
-});
-app.use('*', auth, (req, res, next) => {
-  next(new NotFoundError('Ресурс не найден. Проверьте URL и метод запроса'));
 });
 
 app.use(errorLogger);

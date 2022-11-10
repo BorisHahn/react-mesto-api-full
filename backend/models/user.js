@@ -35,7 +35,6 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    minLength: 8,
     select: false,
   },
 }, { toObject: { useProjection: true }, toJSON: { useProjection: true } });
